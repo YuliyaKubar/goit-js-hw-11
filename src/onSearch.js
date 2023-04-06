@@ -6,6 +6,8 @@ import { fetchImages } from './fetchImages';
 const API_KEY = '35069907-16ee8141b79ba130abf84928c';
 const BASE_URL = 'https://pixabay.com/api/';
 const btnLoadMore = document.querySelector('.load-more');
+const formEl = document.querySelector('.search-form');
+formEl.addEventListener('submit', onSearch);
 
 let searchQuery = '';
 let currentPage = 1;

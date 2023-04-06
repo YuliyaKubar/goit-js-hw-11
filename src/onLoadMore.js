@@ -6,6 +6,8 @@ const BASE_URL = 'https://pixabay.com/api/';
 let searchQuery = '';
 let currentPage = 1;
 
+btnLoadMore.addEventListener('click', onLoadMore);
+
 export function onLoadMore() {
   const url = `${BASE_URL}?key=${API_KEY}&q=${searchQuery}&type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${currentPage}`;
   fetchImages(url);

@@ -1,6 +1,8 @@
 import { renderImageGallery } from './renderImageGallery';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import axios from 'axios';
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryEl = document.querySelector('.gallery');
 const btnLoadMore = document.querySelector('.load-more');
@@ -13,7 +15,7 @@ let currentPage = 1;
 export async function fetchImages(url) {
   try {
     const response = await axios(url);
-    const hits = await response.data;
+    const hits = response.data;
     galleryEl.insertAdjacentHTML('beforeend', renderImageGallery(hits));
     currentPage += 1;
     btnLoadMore.classList.remove('is-hidden');
