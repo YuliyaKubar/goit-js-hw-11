@@ -15,9 +15,6 @@ body {
       
 }
 
-.is-hidden {
-    display: none;
-}
 
 .search-form {
 
@@ -88,6 +85,10 @@ body {
 .load-more:hover,
 .load-more:focus {
     background-color: #d1b3e3;
+}
+
+.is-hidden {
+    display: none;
 }
 
 .gallery {
