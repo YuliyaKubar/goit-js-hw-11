@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import { onSearch } from './onSearch';
-import { onLoadMore } from './onSearch';
+import { onLoadMore } from './onLoadMore';
 import { fetchImages } from './fetchImages';
 import { renderImageGallery } from './renderImageGallery';
 import { resetPage } from './resetPage';
