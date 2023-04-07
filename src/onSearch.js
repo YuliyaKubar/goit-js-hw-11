@@ -2,12 +2,15 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { resetPage } from './resetPage';
 import { clearGalleryContainer } from './clearGalleryContainer';
 import { fetchImages } from './fetchImages';
+import { onLoadMore } from './onLoadMore';
 
 const API_KEY = '35069907-16ee8141b79ba130abf84928c';
 const BASE_URL = 'https://pixabay.com/api/';
 const btnLoadMore = document.querySelector('.load-more');
 const formEl = document.querySelector('.search-form');
+
 formEl.addEventListener('submit', onSearch);
+btnLoadMore.addEventListener('click', onLoadMore);
 
 let searchQuery = '';
 let currentPage = 1;
