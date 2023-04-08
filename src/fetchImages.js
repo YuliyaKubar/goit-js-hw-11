@@ -12,26 +12,29 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-let currentPage = 1;
-
 btnLoadMore.addEventListener('click', onLoadMore);
+let currentPage = 1;
 
 export async function fetchImages(url) {
   try {
     const response = await axios(url);
     const data = response.data;
     galleryEl.insertAdjacentHTML('beforeend', renderImageGallery(data));
-    currentPage += 1;
+
     btnLoadMore.classList.remove('is-hidden');
     lightbox.refresh();
 
-    if (currentPage === Math.ceil(data.totalhits / 40)) {
+    if (currentPage === Math.ceil(data.totalHits / 40)) {
       btnLoadMore.style.display = 'none';
       Notify.failure(
         "We're sorry, but you've reached the end of search results."
       );
-    }
+    } else {
+      btnLoadMore.style.display = 'block';
 
+      btnLoadMore.classList.remove('is-hidden');
+    }
+    currentPage += 1;
     return data;
   } catch {
     btnLoadMore.classList.add('is-hidden');
