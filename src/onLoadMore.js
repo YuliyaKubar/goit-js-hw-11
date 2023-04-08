@@ -1,7 +1,7 @@
 import { fetchImages } from './fetchImages';
 import { renderImageGallery } from './renderImageGallery';
 import { lightbox } from './onSearch';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const API_KEY = '35069907-16ee8141b79ba130abf84928c';
 const BASE_URL = 'https://pixabay.com/api/';
 
@@ -13,6 +13,9 @@ const btnLoadMore = document.querySelector('.load-more');
 btnLoadMore.addEventListener('click', onLoadMore);
 
 export function onLoadMore(event) {
+  if (searchQuery !== formEl.elements.searchQuery.value.trim()) {
+    currentPage = 1;
+  }
   currentPage += 1;
   searchQuery = formEl.elements.searchQuery.value.trim();
   const url = `${BASE_URL}?key=${API_KEY}&q=${searchQuery}&type=photo&orientation=horizontal&safesearch=true&per_page=40&page=${currentPage}`;

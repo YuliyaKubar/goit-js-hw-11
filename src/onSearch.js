@@ -8,7 +8,7 @@ import { renderImageGallery } from './renderImageGallery';
 const API_KEY = '35069907-16ee8141b79ba130abf84928c';
 const BASE_URL = 'https://pixabay.com/api/';
 const btnLoadMore = document.querySelector('.load-more');
-
+btnLoadMore.addEventListener('click', onLoadMore);
 const galleryEl = document.querySelector('.gallery');
 
 export const lightbox = new SimpleLightbox('.gallery a', {
@@ -31,7 +31,7 @@ export function onSearch(event) {
     Notify.failure('Please enter the desired image!');
   } else {
     fetchImages(url).then(data => {
-      if (data.hits.total === 0) {
+      if (data.total === 0) {
         btnLoadMore.classList.add('is-hidden');
         Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
