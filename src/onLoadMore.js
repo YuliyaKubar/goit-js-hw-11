@@ -5,7 +5,7 @@ const BASE_URL = 'https://pixabay.com/api/';
 
 let searchQuery = '';
 let currentPage = 1;
-
+const btnLoadMore = document.querySelector('.load-more');
 btnLoadMore.addEventListener('click', onLoadMore);
 
 export function onLoadMore() {

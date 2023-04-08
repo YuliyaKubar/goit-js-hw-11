@@ -1,5 +1,6 @@
 import { renderImageGallery } from './renderImageGallery';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { onLoadMore } from './onLoadMore';
 import axios from 'axios';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
@@ -11,6 +12,8 @@ const lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 let currentPage = 1;
+
+btnLoadMore.addEventListener('click', onLoadMore);
 
 export async function fetchImages(url) {
   try {
@@ -27,4 +30,11 @@ export async function fetchImages(url) {
       "We're sorry, but you've reached the end of search results."
     );
   }
+
+  // if (url.hits.length === totalhits) {
+  //   btnLoadMore.style.display = 'none';
+  //   Notify.failure(
+  //     "We're sorry, but you've reached the end of search results."
+  //   );
+  // }
 }
